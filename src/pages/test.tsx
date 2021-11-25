@@ -68,7 +68,9 @@ const Test: FC = () => {
       >
         <AnimatorGeneralProvider animator={generalAnimator}>
           <Animator animator={{ activate: true, manager: 'stagger' }}>
-            <Text as='h1'>Emergency</Text>
+            <Text as='h1' className='mt-12'>
+              Emergency
+            </Text>
             <Text as='p'>
               A nebula is an interstellar cloud of dust, hydrogen, helium and other ionized gases.
               Originally, the term was used to describe any diffused astronomical object, including

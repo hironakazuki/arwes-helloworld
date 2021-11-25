@@ -16,6 +16,7 @@
     "@arwes/sounds": "^1.0.0-alpha.19",
     "@emotion/css": "11",
     "@emotion/react": "11",
+    "@types/styled-components": "^5.1.15",
     "animejs": "3",
     "howler": "2.2",
     "next": "11.1.2",
@@ -23,7 +24,8 @@
     "prop-types": "^15.7.2",
     "react": "17",
     "react-dom": "17",
-    "recoil": "^0.5.2"
+    "recoil": "^0.5.2",
+    "styled-components": "^5.3.3"
   },
   "devDependencies": {
     "@types/animejs": "3",

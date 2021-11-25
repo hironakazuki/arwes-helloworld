@@ -3,6 +3,8 @@ import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from '../styles/Home.module.css';
+import styled, { keyframes } from 'styled-components';
+
 import { AnimatorGeneralProvider, Animator } from '@arwes/animation';
 import { BleepsProvider } from '@arwes/sounds';
 import { ArwesThemeProvider, StylesBaseline, Text, Figure } from '@arwes/core';
@@ -20,7 +22,19 @@ const bleepsSettings = {
   type: { player: 'type' },
 };
 const generalAnimator = { duration: { enter: 300, exit: 200 } };
+
+const Rotation = keyframes`
+  0%{ transform:rotate(0);}
+  100%{ transform:rotate(360deg); }
+`;
+const BgWrapper = styled.div`
+img{
+  animation: ${Rotation} 60s linear infinite normal;,
+}
+`;
+
 const Home: NextPage = () => {
+  const imgSrc = '/images/animal_chara_computer_penguin.png';
   return (
     <ArwesThemeProvider>
       <BleepsProvider
@@ -37,7 +51,13 @@ const Home: NextPage = () => {
           </Head>
 
           <main className={styles.main}>
-            <h1 className={styles.title}>
+            <BgWrapper>
+              <img
+                src={imgSrc}
+                className='fixed left-0 top-0 z-[-1] object-contain opacity-25 w-screen h-screen pointer-events-none'
+              />
+            </BgWrapper>
+            <h1 className='text-red-300'>
               Welcome to <a href='https://nextjs.org'>Next.js!</a>
             </h1>
 
