@@ -68,7 +68,7 @@ const Test = () => {
           <AnimatorGeneralProvider animator={generalAnimator}>
             <Animator animator={{ activate: true, manager: 'stagger' }}>
               <div className={styles.main}>
-                <FrameLines animator={{ activate }} hover>
+                <FrameLines>
                   <div
                     style={{ width: 2000, height: 1000 }}
                     className='text-[8.125vw] align-middle flex justify-center items-center'
