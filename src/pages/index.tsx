@@ -1,6 +1,7 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 import Link from 'next/link';
 import styles from '../styles/Home.module.css';
 import styled, { keyframes } from 'styled-components';
@@ -8,8 +9,9 @@ import styled, { keyframes } from 'styled-components';
 import { AnimatorGeneralProvider, Animator } from '@arwes/animation';
 import { BleepsProvider } from '@arwes/sounds';
 import { ArwesThemeProvider, StylesBaseline, Text, Figure } from '@arwes/core';
+import { useSetRecoilState } from 'recoil';
+import { messageState } from '../atoms/messageState';
 const ROOT_FONT_FAMILY = '"Titillium Web", sans-serif';
-const IMAGE_URL = 'https://playground.arwes.dev/assets/images/wallpaper.jpg';
 const SOUND_OBJECT_URL = '/public/sounds/object.mp3';
 const SOUND_TYPE_URL = '/public/sounds/type.mp3';
 const audioSettings = { common: { volume: 0.25 } };
@@ -21,8 +23,6 @@ const bleepsSettings = {
   object: { player: 'object' },
   type: { player: 'type' },
 };
-const generalAnimator = { duration: { enter: 300, exit: 200 } };
-
 const Rotation = keyframes`
   0%{ transform:rotate(0);}
   100%{ transform:rotate(360deg); }
@@ -32,9 +32,17 @@ img{
   animation: ${Rotation} 60s linear infinite normal;,
 }
 `;
+const imgSrc = '/images/animal_chara_computer_penguin.png';
 
 const Home: NextPage = () => {
-  const imgSrc = '/images/animal_chara_computer_penguin.png';
+  const setMessage = useSetRecoilState(messageState);
+  const router = useRouter();
+  const handleClick = (e: any) => {
+    e.preventDefault();
+    setMessage('Hello, world!');
+    router.push('/test');
+  };
+
   return (
     <ArwesThemeProvider>
       <BleepsProvider
@@ -66,12 +74,10 @@ const Home: NextPage = () => {
             </p>
 
             <div className={styles.grid}>
-              <Link href='/test' passHref>
-                <div className={styles.card}>
-                  <h2>arwes &rarr;</h2>
-                  <p>Learn Arwes!</p>
-                </div>
-              </Link>
+              <a href='' className={styles.card} onClick={handleClick}>
+                <h2>Hello world! &rarr;</h2>
+                {/* <p>Hello world!</p> */}
+              </a>
 
               <a href='https://nextjs.org/learn' className={styles.card}>
                 <h2>Learn &rarr;</h2>
