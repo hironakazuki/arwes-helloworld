@@ -25,7 +25,7 @@ const bleepsSettings = {
 };
 const generalAnimator = { duration: { enter: 2000, exit: 200 } };
 
-const Test: FC = () => {
+const Test = () => {
   const [progress, setProgress] = React.useState(0);
   const [activate, setActivate] = useState(true);
   const [activate2, setActivate2] = useState(false);
