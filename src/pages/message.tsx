@@ -66,8 +66,8 @@ const Test = () => {
             <div className={styles.main}>
               <FrameLines>
                 <div
-                  style={{ width: 2000, height: 990 }}
-                  className='text-[8.125vw]  flex justify-center items-center '
+                  style={{ minHeight: '75vh' }}
+                  className='text-[8.125vw]  flex justify-center items-center mx-20'
                 >
                   <Text as='h2' className='text-[8.125vw] '>
                     {message}
