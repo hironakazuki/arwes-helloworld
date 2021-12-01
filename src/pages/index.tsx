@@ -2,13 +2,11 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import Link from 'next/link';
 import styles from '../styles/Home.module.css';
 import styled, { keyframes } from 'styled-components';
 
-import { AnimatorGeneralProvider, Animator } from '@arwes/animation';
 import { BleepsProvider } from '@arwes/sounds';
-import { ArwesThemeProvider, StylesBaseline, Text, Figure } from '@arwes/core';
+import { ArwesThemeProvider, StylesBaseline } from '@arwes/core';
 import { useSetRecoilState } from 'recoil';
 import { messageState } from '../atoms/messageState';
 const ROOT_FONT_FAMILY = '"Titillium Web", sans-serif';
@@ -62,7 +60,7 @@ const Home: NextPage = () => {
             <BgWrapper>
               <img
                 src={imgSrc}
-                className='fixed left-0 top-0 z-[-1] object-contain opacity-25 w-screen h-screen pointer-events-none'
+                className='fixed left-0 top-0 object-contain opacity-25 w-screen h-screen pointer-events-none'
               />
             </BgWrapper>
             <h1 className='text-red-300'>

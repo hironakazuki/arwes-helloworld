@@ -31,7 +31,7 @@ const Test: FC = () => {
   useEffect(() => {
     setTimeout(() => {
       router.push('/message');
-    }, 5 * 1000);
+    }, 8 * 1000);
   }, [router]);
   useEffect(() => {
     const timeout = setTimeout(() => setActivate2(!activate2), 2000);
