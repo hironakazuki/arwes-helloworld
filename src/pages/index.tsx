@@ -9,6 +9,7 @@ import { BleepsProvider } from '@arwes/sounds';
 import { ArwesThemeProvider, StylesBaseline } from '@arwes/core';
 import { useSetRecoilState } from 'recoil';
 import { messageState } from '../atoms/messageState';
+import { useState } from 'react';
 const ROOT_FONT_FAMILY = '"Titillium Web", sans-serif';
 const SOUND_OBJECT_URL = '/public/sounds/object.mp3';
 const SOUND_TYPE_URL = '/public/sounds/type.mp3';
@@ -34,10 +35,17 @@ const imgSrc = '/images/animal_chara_computer_penguin.png';
 
 const Home: NextPage = () => {
   const setMessage = useSetRecoilState(messageState);
+  const [text, setText] = useState('');
   const router = useRouter();
   const handleClick = (e: any) => {
     e.preventDefault();
     setMessage('Hello, world!');
+    router.push('/test');
+  };
+
+  const submitText = (e: any) => {
+    e.preventDefault();
+    setMessage(text);
     router.push('/test');
   };
 
@@ -63,41 +71,39 @@ const Home: NextPage = () => {
                 className='fixed left-0 top-0 object-contain opacity-25 w-screen h-screen pointer-events-none'
               />
             </BgWrapper>
-            <h1 className='text-red-300'>
-              Welcome to <a href='https://nextjs.org'>Next.js!</a>
-            </h1>
+            <h1 className='text-red-300'>Welcome to IKE IKE Hello World!</h1>
 
-            <p className={styles.description}>
-              Get started by editing <code className={styles.code}>pages/index.js</code>
-            </p>
-
-            <div className={styles.grid}>
-              <a href='' className={styles.card} onClick={handleClick}>
-                <h2>Hello world! &rarr;</h2>
-                {/* <p>Hello world!</p> */}
-              </a>
-
-              <a href='https://nextjs.org/learn' className={styles.card}>
-                <h2>Learn &rarr;</h2>
-                <p>Learn about Next.js in an interactive course with quizzes!</p>
-              </a>
-
-              <a
-                href='https://github.com/vercel/next.js/tree/master/examples'
-                className={styles.card}
-              >
-                <h2>Examples &rarr;</h2>
-                <p>Discover and deploy boilerplate example Next.js projects.</p>
-              </a>
-
-              <a
-                href='https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app'
-                className={styles.card}
-              >
-                <h2>Deploy &rarr;</h2>
-                <p>Instantly deploy your Next.js site to a public URL with Vercel.</p>
-              </a>
+            <div className='w-full md:w-96 md:max-w-full mx-auto'>
+              <div className='p-6 border border-gray-300 sm:rounded-md'>
+                <label className='mb-6 flex items-center '>
+                  <span className='text-gray-200'>console.log(&quot;</span>
+                  <input
+                    onChange={(event) => {
+                      setText(event.target.value);
+                    }}
+                    type='text'
+                    name='name'
+                    value={text}
+                    className='block w-full mt-1 rounded-md shadow-sm focus:border-indigo-300  focus:ring-indigo-200 focus:ring-opacity-50'
+                  />
+                  <span className='text-gray-200'>&quot;)</span>
+                </label>
+                <div className='mb-6'>
+                  <button
+                    onClick={submitText}
+                    type='submit'
+                    className=' h-10 px-5 text-indigo-100 bg-indigo-700 rounded-lg transition-colors duration-150 focus:shadow-outline hover:bg-indigo-800'
+                  >
+                    Run
+                  </button>
+                </div>
+                <div></div>
+              </div>
             </div>
+            <p className={styles.description}>↓忙しい人向け</p>
+            <a href='' className={styles.card} onClick={handleClick}>
+              <h2>Hello world! &rarr;</h2>
+            </a>
           </main>
 
           <footer className={styles.footer}>

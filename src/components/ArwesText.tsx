@@ -3,14 +3,14 @@ import { Text } from '@arwes/core';
 
 const ArwesText: FC = () => (
   <>
-    <Text as='p'>
+    <Text as='p' className=' opacity-0'>
       A nebula is an interstellar cloud of dust, hydrogen, helium and other ionized gases.
       Originally, the term was used to describe any diffused astronomical object, including galaxies
       beyond the Milky Way. The Andromeda Galaxy, for instance, was once referred to as the
       Andromeda Nebula (and spiral galaxies in general as spiral nebulae) before the true nature of
       galaxies was confirmed in the early 20th century by Vesto Slipher, Edwin Hubble and others.
     </Text>
-    <Text as='p'>
+    <Text as='p' className=' opacity-20'>
       Most nebulae are of vast size; some are hundreds of light-years in diameter. A nebula that is
       visible to the human eye from Earth would appear larger, but no brighter, from close by. The
       Orion Nebula, the brightest nebula in the sky and occupying an area twice the angular diameter

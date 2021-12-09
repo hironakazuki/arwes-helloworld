@@ -24,7 +24,7 @@ const bleepsSettings = {
   type: { player: 'type' },
   assemble: { player: 'assemble' },
 };
-const generalAnimator = { duration: { enter: 2000, exit: 200 } };
+const generalAnimator = { duration: { enter: 1500, exit: 200 } };
 const generalAnimator2 = { duration: { enter: 200, exit: 200 } };
 
 const Test = () => {
@@ -66,7 +66,7 @@ const Test = () => {
             <div className={styles.main}>
               <FrameLines>
                 <div
-                  style={{ minHeight: '75vh' }}
+                  style={{ minHeight: '75vh', minWidth: '75vw' }}
                   className='text-[8.125vw]  flex justify-center items-center mx-20'
                 >
                   <Text as='h2' className='text-[8.125vw] '>
